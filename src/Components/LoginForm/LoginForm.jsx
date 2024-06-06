@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import './LoginForm.css';
 import { FaUserMd, FaUnlock, FaEnvelope, FaEye } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
-
     const [action, setAction] = useState('');
+    const navigate = useNavigate();
 
     const registerLink = () => {
         setAction(' active');
     };
+
     const LoginLink = () => {
         setAction('');
+    };
+
+    const navigateToMenu = () => {
+        navigate('/menu');
     };
 
     return (
@@ -32,7 +38,7 @@ const LoginForm = () => {
                         <a href="#">Olvidó su contraseña?</a>
                     </div>
 
-                    <button type="button">INGRESAR</button>
+                    <button type="button" onClick={navigateToMenu}>INGRESAR</button>
                     <div className="register-link">
                         <p>No cuentas con un usuario? <a href="#" onClick={registerLink}>Registrar</a></p>
                     </div>
@@ -71,7 +77,6 @@ const LoginForm = () => {
                     </div>
 
                     <div className="register-link">
-                        
                         <p>Ya estás registrado? <a href="#" onClick={LoginLink}>INGRESAR</a></p>
                     </div>
                 </form>
